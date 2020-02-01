@@ -44,7 +44,7 @@ void insertion_sort_list(listint_t **list)
             if (temp2->prev == NULL)
             {
                 temp2 = temp3;
-                temp1 = temp3->prev;
+                temp1 = temp2->prev;
                 c = 0;
                 break;
             }

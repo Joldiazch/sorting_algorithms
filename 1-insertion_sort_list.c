@@ -2,9 +2,19 @@
 
 void swap(listint_t *temp1, listint_t *temp2, listint_t **head)
 {
-    if (temp1->prev != NULL)
+    if (temp2->next == NULL)
     {
         temp1->prev->next = temp2;
+        temp2->prev =temp1->prev;
+        temp1->next = temp2->next;
+        temp1->prev = temp2;
+        temp2->next = temp1;
+
+    }
+    else if (temp1->prev != NULL)
+    {
+        temp1->prev->next = temp2;
+        temp2->next->prev = temp1;
         temp2->prev =temp1->prev;
         temp1->next = temp2->next;
         temp1->prev = temp2;

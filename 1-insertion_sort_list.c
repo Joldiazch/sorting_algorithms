@@ -8,7 +8,7 @@
  */
 void swap(listint_t *temp1, listint_t *temp2, listint_t **head)
 {
-	if (temp2->next == NULL)
+	if (temp2->next == NULL && temp1->prev != NULL)
 	{
 		temp1->prev->next = temp2;
 		temp2->prev = temp1->prev;
@@ -25,6 +25,14 @@ void swap(listint_t *temp1, listint_t *temp2, listint_t **head)
 		temp1->prev = temp2;
 		temp2->next = temp1;
 		*head = *head;
+	}
+	if (temp2->next == NULL && temp1->prev == NULL)
+	{
+		temp2->prev = NULL;
+		temp2->next = temp1;
+		temp1->prev = temp2;
+		temp1->next = NULL;
+		*head = temp2;
 	}
 	else
 	{
@@ -48,8 +56,8 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp3 = NULL;
 	int c = 0;
 
-    if (list == NULL || *list == NULL)
-        return;
+	if (list == NULL || *list == NULL)
+		return;
 
 	while (temp2 != NULL)
 	{

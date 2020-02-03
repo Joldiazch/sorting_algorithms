@@ -22,12 +22,12 @@ void selection_sort(int *array, size_t size)
 				flag = 1;
 			}
 		}
-		array[index] = array[i];
-		array[i] = min;
 		if (flag == 1)
 		{
+			array[index] = array[i];
 			print_array(array, size);
 			flag = 0;
 		}
+		array[i] = min;
 	}
 }

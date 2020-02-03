@@ -48,6 +48,9 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp3 = NULL;
 	int c = 0;
 
+    if (list == NULL || *list == NULL)
+        return;
+
 	while (temp2 != NULL)
 	{
 		while (temp2->n < temp1->n)

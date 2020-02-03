@@ -10,7 +10,7 @@ void selection_sort(int *array, size_t size)
 	size_t i, j = 0, index;
 	int min = 0, flag = 0;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size && array != NULL; i++)
 	{
 		min = array[i];
 		for (j = i; j < size; j++)

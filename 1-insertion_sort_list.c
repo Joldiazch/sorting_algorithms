@@ -26,7 +26,7 @@ void swap(listint_t *temp1, listint_t *temp2, listint_t **head)
 		temp2->next = temp1;
 		*head = *head;
 	}
-	if (temp2->next == NULL && temp1->prev == NULL)
+	else if (temp2->next == NULL && temp1->prev == NULL)
 	{
 		temp2->prev = NULL;
 		temp2->next = temp1;

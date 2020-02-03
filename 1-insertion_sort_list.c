@@ -51,13 +51,16 @@ void swap(listint_t *temp1, listint_t *temp2, listint_t **head)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *temp1 = *list;
-	listint_t *temp2 = (*list)->next;
+	listint_t *temp1 = NULL;
+	listint_t *temp2 = NULL;
 	listint_t *temp3 = NULL;
 	int c = 0;
 
 	if (list == NULL || *list == NULL)
 		return;
+
+	temp2 = (*list)->next;
+	temp1 = *list;
 
 	while (temp2 != NULL)
 	{

@@ -1,22 +1,17 @@
 #include "sort.h"
-/**
- * quick_sort - Sorting algorithim by selection
- * @array: Array to be sorted
- * @size: Amount of elements in the array
- * Return: No return
- */
 
-void sort(int *array, size_t size, size_t i, size_t j)
+void sort(int *array, size_t size, int start, int end)
 {
-	int p = array[size - 1], temp = 0;
-	if (size < 3)
+	int p = array[end], i = start, j, temp;
+
+	if (end - start < 2)
 		return;
 
-	for (j = 0; j < size - 1; j++)
+	for (j = start; j < end; j++)
 	{
 		if (array[j] < p)
 		{
-			if (array[i] != array[j])
+			if (array[j] != array[i])
 			{
 				temp = array[i];
 				array[i] = array[j];
@@ -26,16 +21,30 @@ void sort(int *array, size_t size, size_t i, size_t j)
 			i++;
 		}
 	}
-
 	temp = array[i];
 	array[i] = p;
-	array[size - 1] = temp;
-
-	print_array(array, size);
-
-	sort(array, size -1, i + 1, j);
+	array[end] = temp;
+	if (i != j)
+		print_array(array, size);
+	if (i == 0)
+		sort(array, size, 1, end);
+	else
+	{
+		sort(array, size, start, i - 1);
+		sort(array, size, i + 1, end);
+	}
 }
+
+
+
+/**
+ * quick_sort - Sorting algorithim by selection
+ * @array: Array to be sorted
+ * @size: Amount of elements in the array
+ * Return: No return
+ */
+
 void quick_sort(int *array, size_t size)
 {
-	sort(array, size, 0, 0);
+	sort(array, size, 0, size - 1);
 }

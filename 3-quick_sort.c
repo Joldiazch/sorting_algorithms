@@ -28,11 +28,15 @@ void sort(int *array, size_t size, int start, int end)
 			i++;
 		}
 	}
-	temp = array[i];
-	array[i] = p;
-	array[end] = temp;
-	if (i != j)
-		print_array(array, size);
+	if (p < array[i])
+	{
+		temp = array[i];
+		array[i] = p;
+		array[end] = temp;
+
+		if (i != j)
+			print_array(array, size);
+	}
 	if (i == 0)
 		sort(array, size, 1, end);
 	else
@@ -53,5 +57,6 @@ void sort(int *array, size_t size, int start, int end)
 
 void quick_sort(int *array, size_t size)
 {
-	sort(array, size, 0, size - 1);
+	if (array != NULL && size > 1)
+		sort(array, size, 0, size - 1);
 }

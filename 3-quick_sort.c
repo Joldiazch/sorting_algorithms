@@ -1,5 +1,12 @@
 #include "sort.h"
-
+/**
+ * sort - Sorting algorithim with recursion
+ * @array: Array to be sorted
+ * @size: Amount of elements in the array
+ * @start: The start of the array
+ * @end: The end of the array
+ * Return: No return
+ */
 void sort(int *array, size_t size, int start, int end)
 {
 	int p = array[end], i = start, j, temp;

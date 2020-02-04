@@ -11,7 +11,7 @@ void sort(int *array, size_t size, int start, int end)
 {
 	int p = array[end], i = start, j, temp;
 
-	if (end - start < 2)
+	if (end - start < 1)
 		return;
 
 	for (j = start; j < end; j++)
